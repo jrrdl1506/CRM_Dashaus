@@ -1,0 +1,42 @@
+<div class="header">
+    <div class="h_logo">
+        <img src="../../../assets/img/dasHausLogo_b.png">
+    </div>
+
+
+
+    <div class="h_menu" *ngIf="userType == 1">
+        <div class="h_menu_opt">
+            <p>Dashboard</p>
+        </div>
+        <div class="h_menu_opt">
+            <p>Leads</p>
+        </div>
+        <div class="h_menu_opt">
+            <p>Estadisticas</p>
+        </div>
+        <div class="h_menu_opt">
+            <p>Administrar</p>
+        </div>
+    </div>
+
+
+    <div class="h_menu" *ngIf="userType == 2">
+        <div class="h_menu_opt">
+            <p>Dashboard 2</p>
+        </div>
+        <div class="h_menu_opt">
+            <p>Leads</p>
+        </div>
+        <div class="h_menu_opt">
+            <p>Estadisticas</p>
+        </div>
+    </div>
+
+
+
+
+    <div class="h_acc">
+         Login
+    </div>
+</div>
