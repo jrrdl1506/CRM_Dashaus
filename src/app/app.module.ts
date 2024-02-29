@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RegisterLeadComponent } from './components/forms/register-lead/register-lead.component';
+import { VerLeadsComponent } from './components/ver-leads/ver-leads.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   
     HeaderComponent,
        DashboardComponent,
-       SidebarComponent
+       SidebarComponent,
+       RegisterLeadComponent,
+       VerLeadsComponent
   ],
   imports: [
     BrowserModule,

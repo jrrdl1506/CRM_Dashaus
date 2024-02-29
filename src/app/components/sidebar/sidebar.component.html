@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" *ngIf="seleccion.includes('Administrar')">
     <div class="sidebar_opt">
         <div><i class="fa-solid fa-users"></i></div>
         <div>Ver usuarios</div>
@@ -16,3 +16,16 @@
         <div>Eliminar usuario</div>
     </div>
 </div>
+
+<div class="sidebar" *ngIf="seleccion.includes('Leads')">
+    <div class="sidebar_opt" [routerLink]="['/dashboard/registerLead']">
+        <i class="fa-solid fa-arrow-up-right-dots"></i>
+        <div >Registrar lead</div>
+    </div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/verLeads']">
+        <i class="fa-regular fa-address-card" ></i>
+        <div >Status de leads</div>
+    </div>
+    
+</div>
+

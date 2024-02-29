@@ -7,30 +7,39 @@
 
     <div class="h_menu" *ngIf="userType == 1">
         <div class="h_menu_opt">
-            <p>Dashboard</p>
+            <p (click)="hacerSeleccion('Dashboard')">Dashboard</p>
         </div>
         <div class="h_menu_opt">
-            <p>Leads</p>
+            <p (click)="hacerSeleccion('Leads')">Leads</p>
         </div>
         <div class="h_menu_opt">
-            <p>Estadisticas</p>
-        </div>
+            <p (click)="hacerSeleccion('Estadisticas')">Estadisticas</p>
+        </div >
         <div class="h_menu_opt">
-            <p>Administrar</p>
+            <p (click)="hacerSeleccion('Administrar')">Administrar</p>
         </div>
     </div>
 
 
     <div class="h_menu" *ngIf="userType == 2">
         <div class="h_menu_opt">
-            <p>Dashboard 2</p>
+            <p>Tesorero</p>
         </div>
+        
+    </div>
+
+    <div class="h_menu" *ngIf="userType == 3">
+        <div class="h_menu_opt">
+            <p>Tecnico</p>
+        </div>
+        
+    </div>
+
+    <div class="h_menu" *ngIf="userType == 4">
         <div class="h_menu_opt">
             <p>Leads</p>
         </div>
-        <div class="h_menu_opt">
-            <p>Estadisticas</p>
-        </div>
+        
     </div>
 
 

@@ -4,10 +4,15 @@
 :root{
     --naranja:rgb(249, 187, 71);
     --naranja-oscuro:rgb(219, 156, 39);
+    
+    --gris-claro:rgb(215, 215, 215);
     --gris:rgb(99, 99, 99);
     --azul-grisaceo:  rgb(77, 84, 116);
     --azul-oscuro:rgb(48, 65, 93);
     --blanco:white;
+    --blanco-grisaceo: rgb(239, 237, 237);
+    --lila:rgb(139, 115, 166);
+    --lila-oscuro:rgb(97, 80, 117);
 
 }
 
@@ -277,5 +282,36 @@ padding: 50px;
 
 .txt-c{
     text-align: center;
+}
+
+.input_style_1{
+    padding: 2px;
+    border: none;
+    outline: none;
+    background-color: var(--blanco-grisaceo);
+    padding: 10px;
+    color: rgb(75, 74, 74);
+}
+
+.btn-style-1{
+    color: var(--blanco);
+    background-color: var(--lila);
+    padding: 12px;
+    border: none;
+
+}
+
+.btn-style-1:hover{
+    color: var(--blanco);
+    background-color: var(--lila-oscuro);
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.title{
+    color: var(--lila);
+    font-size: 25px;
+    
 }
 

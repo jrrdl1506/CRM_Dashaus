@@ -9,7 +9,9 @@ export class LoginServiceService {
   private credencialesSubject : Subject<any> = new Subject<any>();
   credenciales$:Observable<any> = this.credencialesSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    this.checkLocalStorage();
+   }
 
   // LOGIN
   saveCredentials(_username: string, _password: string,_type:string): void {
@@ -30,11 +32,21 @@ export class LoginServiceService {
   }
 
   
-  getUsername(): any | null {
-    return localStorage.getItem('credential');
+  getCredentials(): any | null {
+    var json = localStorage.getItem('credential');
+    if(json)
+    return JSON.parse(json);
+  else
+    return null;
   }
 
-  getPassword(): any | null {
-    return localStorage.getItem('credential');
+
+  private checkLocalStorage(): void {
+    const storedCredential = localStorage.getItem('credential');
+    if (storedCredential) {
+     
+      const credential = JSON.parse(storedCredential);
+      this.credencialesSubject.next(credential);
+    }
   }
 }
