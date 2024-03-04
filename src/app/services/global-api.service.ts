@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalApiService {
-  private apiUrl: string = 'localhost:4000/dasHaus';
+  private apiUrl: string = 'http://localhost:4000/dasHaus';
   constructor() { }
 
   getApiURL(){
