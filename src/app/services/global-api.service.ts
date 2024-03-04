@@ -10,4 +10,6 @@ export class GlobalApiService {
   getApiURL(){
     return this.apiUrl;
   }
+
+  
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LeadApiService } from 'src/app/services/lead-api.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class RegisterLeadComponent implements OnInit{
 
   RegisterLeadForm : FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private leadApiService:LeadApiService) {
     this.RegisterLeadForm = this.fb.group({
       nombreLead: ['', Validators.required],
       origenLead: ['', Validators.required],
@@ -49,10 +50,25 @@ export class RegisterLeadComponent implements OnInit{
 
   ngOnInit(): void {
     
+    
   }
 
   onSubmit() {
-    console.log(this.RegisterLeadForm.value);
+    
+    const LEAD:any = {
+      leadName:this.RegisterLeadForm.get('nombreLead')?.value,
+      leadOrigin:this.RegisterLeadForm.get('origenLead')?.value,
+      leadEmail:this.RegisterLeadForm.get('correoElectronico')?.value,
+      leadNumber:this.RegisterLeadForm.get('numero')?.value,
+      leadModel:this.RegisterLeadForm.get('modeloCasa')?.value,
+      leadStatus:this.RegisterLeadForm.get('statusLead')?.value,
+    }
+
+    this.leadApiService.addLead(LEAD).subscribe(data=>{
+       alert("Exito");
+    },error=>{
+      alert("Error");
+    });
   }
 
 }
