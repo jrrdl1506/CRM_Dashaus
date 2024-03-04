@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'login',component:LoginFormComponent},
   {path:'dashboard',component:DashboardComponent,children: [
     { path: 'registerLead', component: RegisterLeadComponent },
-    { path: 'verLeads',component:VerLeadsComponent}
+    { path: 'verLeads',component:VerLeadsComponent},
+    { path: 'RegisterForm',component:RegisterFormComponent}
   ]},
 
 
