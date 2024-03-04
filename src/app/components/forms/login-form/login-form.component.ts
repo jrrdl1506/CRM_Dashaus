@@ -25,13 +25,8 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if(this.checkCredentials()){
-      this.logingService.saveCredentials(
-        this.loginForm?.value.username,
-        this.loginForm?.value.password,
-        this.loginForm?.value.username
-      );
+  async onSubmit() {
+    if(await this.checkCredentials()){
       this.router.navigate(['/dashboard']);
     }
     else{
@@ -42,8 +37,13 @@ export class LoginFormComponent implements OnInit {
 
 
   // Funcion que checa en la bd si existe o no mediante el servicio
-  checkCredentials():boolean{
-    return true;
+  async checkCredentials():Promise<boolean>{
+
+    return this.logingService.saveCredentials(
+      this.loginForm?.value.username,
+      this.loginForm?.value.password,
+      this.loginForm?.value.username
+    );
   }
 
 

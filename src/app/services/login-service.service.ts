@@ -14,16 +14,42 @@ export class LoginServiceService {
    }
 
   // LOGIN
-  saveCredentials(_username: string, _password: string,_type:string): void {
+  async saveCredentials(_username: string, _password: string,_type:string): Promise<boolean> {
     var credential = {
       username:_username,
       password:_password,
       type:_type
     }
-    this.credencialesSubject.next(credential);
-    var cred = JSON.stringify(credential);
-    localStorage.setItem('credential',cred);
-  
+    
+    const apiUrl = 'http://localhost:4000/dasHaus/authUser';
+    
+    const jsonData = {
+    username: _username,
+    password: _password
+  };
+
+  try {
+      const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(jsonData),
+      });
+
+      if (!response.ok) {
+          return false
+          throw new Error(`Error al realizar la solicitud. Estado: ${response.status}`);
+          
+        }
+
+      const responseData = await response.json();
+      console.log('Datos obtenidos:', responseData);
+      return true
+  } catch (error) {
+      console.error('Error al realizar la solicitud:');
+      return false
+  }
   }
 
   // LOGOUT
