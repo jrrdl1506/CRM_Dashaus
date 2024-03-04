@@ -30,7 +30,9 @@
     <br>
     <div>
         <p>Status del lead</p>
-        <input class="input_style_1 w-75" formControlName="statusLead">
+        <select class="input_style_1 w-75" formControlName="statusLead">
+            <option *ngFor="let option of statusLeadOptions" [value]="option">{{ option }}</option>
+        </select>
     </div>
     <br>
     <div style="display: flex; justify-content: space-between;" class="w-75">

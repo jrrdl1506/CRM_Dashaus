@@ -39,6 +39,13 @@ export class RegisterLeadComponent implements OnInit{
     'OTROS'
   ];
 
+  statusLeadOptions: string[] = [
+    'EN PROCESO',
+    'APARTADO',
+    'CONTRATO',
+    'ESCRITURAS FIRMADAS'
+  ];
+
 
   ngOnInit(): void {
     
