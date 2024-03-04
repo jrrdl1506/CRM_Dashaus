@@ -1,44 +1,39 @@
-<form class="registerLead">
+<form [formGroup]="RegisterLeadForm" (ngSubmit)="onSubmit()" class="registerLead">
     <p class="title">Registrar lead</p>
     <br>
     <div>
         <p>Nombre del lead</p>
-        <input class="input_style_1 w-75">
+        <input class="input_style_1 w-75" formControlName="nombreLead">
     </div>
     <br>
     <div>
         <p>Origen del lead</p>
-        <input class="input_style_1 w-75">
+        <select class="input_style_1 w-75" formControlName="origenLead">
+            <option *ngFor="let option of origenLeadOptions" [value]="option">{{ option }}</option>
+        </select>
     </div>
     <br>
     <div>
         <p>Correo electrónico</p>
-        <input class="input_style_1 w-75">
+        <input class="input_style_1 w-75" formControlName="correoElectronico">
     </div>
     <br>
     <div>
         <p>Número</p>
-        <input class="input_style_1 w-75">
+        <input class="input_style_1 w-75" formControlName="numero">
     </div>
     <br>
     <div>
         <p>Modelo de casa a seleccionar</p>
-        <input class="input_style_1 w-75">
+        <input class="input_style_1 w-75" formControlName="modeloCasa">
     </div>
     <br>
     <div>
         <p>Status del lead</p>
-        <input class="input_style_1 w-75">
+        <input class="input_style_1 w-75" formControlName="statusLead">
     </div>
     <br>
     <div style="display: flex; justify-content: space-between;" class="w-75">
-       
-        <div style="margin-left: auto;" class="btn-style-1">Registrar lead</div>
+        <button type="submit" class="btn-style-1">Registrar lead</button>
     </div>
-      
-    
-    <!-- <div  class="flex-col-c w-75 form">
-      
-
-    </div> -->
 </form>

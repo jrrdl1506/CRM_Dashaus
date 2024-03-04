@@ -1,0 +1,35 @@
+<form [formGroup]="inventarioForm" (ngSubmit)="onSubmit()" class="registerLead">
+    <p class="title">Registrar lead</p>
+    <br>
+    <div>
+        <p>Lote</p>
+        <input class="input_style_1 w-75" formControlName="Lote">
+    </div>
+    <br>
+    <div>
+        <p>Prototipo</p>
+        <select class="input_style_1 w-75" formControlName="modeloCasa">
+            <option *ngFor="let option of modelos" [value]="option">{{ option }}</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <p>Precio de venta</p>
+        <input class="input_style_1 w-75" formControlName="precioventa">
+    </div>
+    <br>
+    <div>
+        <p>Medidas</p>
+        <input class="input_style_1 w-75" formControlName="medidas">
+    </div>
+    
+    <br>
+    <div>
+        <p>Colindancias</p>
+        <input class="input_style_1 w-75" formControlName="colindancias">
+    </div>
+    <br>
+    <div style="display: flex; justify-content: space-between;" class="w-75">
+        <button type="submit" class="btn-style-1">Registrar lead</button>
+    </div>
+</form>
