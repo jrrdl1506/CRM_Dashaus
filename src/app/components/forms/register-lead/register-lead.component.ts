@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LeadApiService } from 'src/app/services/lead-api.service';
 
 
+
 @Component({
   selector: 'app-register-lead',
   templateUrl: './register-lead.component.html',
@@ -11,6 +12,7 @@ import { LeadApiService } from 'src/app/services/lead-api.service';
 export class RegisterLeadComponent implements OnInit{
 
   RegisterLeadForm : FormGroup;
+
 
   constructor(private fb: FormBuilder, private leadApiService:LeadApiService) {
     this.RegisterLeadForm = this.fb.group({
@@ -22,6 +24,9 @@ export class RegisterLeadComponent implements OnInit{
       statusLead: ['', Validators.required]
     });
    }
+
+
+   
 
    origenLeadOptions: string[] = [
     'RECOMENDACIÓN',
@@ -49,7 +54,8 @@ export class RegisterLeadComponent implements OnInit{
 
 
   ngOnInit(): void {
-    
+  
+  
     
   }
 

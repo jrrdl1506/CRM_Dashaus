@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RegisterLeadComponent } from './components/forms/register-lead/register-lead.component';
-import { VerLeadsComponent } from './components/ver-leads/ver-leads.component';
+import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.component';
 import { InventarioFormComponent } from './components/forms/inventario-form/inventario-form.component';
 import { LeadsAcomuladosComponent } from './components/graficas/leads-acomulados/leads-acomulados.component';
 import { LeadsPorCanalComponent } from './components/graficas/leads-por-canal/leads-por-canal.component';

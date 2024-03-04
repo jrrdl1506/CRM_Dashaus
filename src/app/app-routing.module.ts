@@ -4,7 +4,7 @@ import { LoginFormComponent } from './components/forms/login-form/login-form.com
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterLeadComponent } from './components/forms/register-lead/register-lead.component';
-import { VerLeadsComponent } from './components/ver-leads/ver-leads.component';
+import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.component';
 
 
 
