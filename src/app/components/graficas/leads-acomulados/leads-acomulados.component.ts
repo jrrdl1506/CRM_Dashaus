@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NgxChartsModule,  Color, ScaleType } from '@swimlane/ngx-charts';
 
+import { LeadApiService } from 'src/app/services/lead-api.service';
+
+
 
 @Component({
   selector: 'app-leads-acomulados',
@@ -42,10 +45,18 @@ export class LeadsAcomuladosComponent {
     name: 'myScheme',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
+    domain: ['#AAAAAA', '#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
 
-  constructor() {
+  constructor(  private LeadApi:LeadApiService) {
+
+    this.LeadApi.getCategoryLeads().subscribe((data:any[])=>{
+      this.single = data;
+      console.log(this.single,"LISTA canales");
+   },error=>{
+    alert("Error");
+   });
+
     Object.assign(this.single)
   }
 

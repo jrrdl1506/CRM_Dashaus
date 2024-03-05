@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -40,7 +41,8 @@ import { InventarioDisponibleComponent } from './components/graficas/inventario-
     AppRoutingModule,
     ReactiveFormsModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
