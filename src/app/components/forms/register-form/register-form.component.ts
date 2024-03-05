@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { RegisterServiceService } from 'src/app/services/register-service.service';
-
+import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -18,7 +17,7 @@ export class RegisterFormComponent implements OnInit{
     'administración'
   ];
 
-  constructor(private fb: FormBuilder, private registerService:RegisterServiceService, private router: Router) {
+  constructor(private fb: FormBuilder, private registerService:UserServiceService, private router: Router) {
     
    }
 

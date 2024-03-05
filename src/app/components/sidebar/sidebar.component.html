@@ -1,13 +1,13 @@
 <div class="sidebar" *ngIf="seleccion.includes('Administrar')">
-    <div class="sidebar_opt">
-        <div><i class="fa-solid fa-users"></i></div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/listaUsuarios']">
+        <div><i class="fa-solid fa-users" ></i></div>
         <div>Ver usuarios</div>
     </div>
-    <div class="sidebar_opt" [routerLink]="['/dashboard/RegisterForm']">
+    <div class="sidebar_opt" [routerLink]="['/dashboard/registerForm']">
         <div><i class="fa-solid fa-user-plus" ></i></div>
         <div>Añadir usuario</div>
     </div>
-    <div class="sidebar_opt">
+    <div class="sidebar_opt" >
         <div><i class="fa-solid fa-user-pen"></i></div>
         <div>Editar usuario</div>
     </div>

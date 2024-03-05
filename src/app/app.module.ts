@@ -20,6 +20,7 @@ import { LeadsAcomuladosComponent } from './components/graficas/leads-acomulados
 import { LeadsPorCanalComponent } from './components/graficas/leads-por-canal/leads-por-canal.component';
 import { InventarioDisponibleComponent } from './components/graficas/inventario-disponible/inventario-disponible.component';
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
+import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lis
        LeadsAcomuladosComponent,
        LeadsPorCanalComponent,
        InventarioDisponibleComponent,
-       ListaUsuariosComponent
+       ListaUsuariosComponent,
+       PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
