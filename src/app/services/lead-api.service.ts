@@ -18,6 +18,10 @@ export class LeadApiService {
     return this.http.get(this.Api.getApiURL() + "/getLeads");
   }
 
+  getCategoryLeads():Observable<any>{
+    return this.http.get(this.Api.getApiURL() + "/getCategoryLeads");
+  }
+
   addLead(lead:any):Observable<any>{
     console.log(lead,"ADDLEAD");
     return this.http.post(this.Api.getApiURL() + "/addLead",lead);

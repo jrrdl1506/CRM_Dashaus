@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NgxChartsModule,  Color, ScaleType } from '@swimlane/ngx-charts';
+import { NgxChartsModule,  Color, ScaleType } from '@swimlane/ngx-charts'
+
+
+import { LeadApiService } from 'src/app/services/lead-api.service';
+
 
 @Component({
   selector: 'app-leads-por-canal',
@@ -11,15 +15,15 @@ export class LeadsPorCanalComponent {
   single = [
     {
       "name": "facebook",
-      "value": 4
+      "value": 0
     },
     {
       "name": "x",
-      "value": 6
+      "value": 0
     },
     {
       "name": "instagram",
-      "value": 40
+      "value": 0
     }
   ];
 
@@ -40,14 +44,21 @@ export class LeadsPorCanalComponent {
     name: 'myScheme',
     selectable: true,
     group: ScaleType.Ordinal,
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
+    domain: ['#AAAAAA', '#5AA454','#3b5998',  '#A10A28', '#C7B42C','#5AA454','#5AA454','#5AA454','#5AA454','#5AA454','#5AA454','#5AA454','#5AA454'],
   };
 
-  constructor() {
+  constructor( private LeadApi:LeadApiService) {
+    this.LeadApi.getCategoryLeads().subscribe((data:any[])=>{
+      this.single = data;
+      console.log(this.single,"LISTA canales");
+   },error=>{
+    alert("Error");
+   });
+
     Object.assign(this.single)
   }
 
-  onSelect(event: any) {
-    console.log(event);
+  onSelect() {
+
   }
 }
