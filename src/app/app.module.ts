@@ -18,6 +18,7 @@ import { InventarioFormComponent } from './components/forms/inventario-form/inve
 import { LeadsAcomuladosComponent } from './components/graficas/leads-acomulados/leads-acomulados.component';
 import { LeadsPorCanalComponent } from './components/graficas/leads-por-canal/leads-por-canal.component';
 import { InventarioDisponibleComponent } from './components/graficas/inventario-disponible/inventario-disponible.component';
+import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { InventarioDisponibleComponent } from './components/graficas/inventario-
        InventarioFormComponent,
        LeadsAcomuladosComponent,
        LeadsPorCanalComponent,
-       InventarioDisponibleComponent
+       InventarioDisponibleComponent,
+       ListaUsuariosComponent
   ],
   imports: [
     BrowserModule,

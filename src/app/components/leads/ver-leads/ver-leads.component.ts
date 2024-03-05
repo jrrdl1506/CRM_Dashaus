@@ -14,13 +14,13 @@ export class VerLeadsComponent {
       alert("Exito");
       console.log(this.ListaLeads,"LISTA LEADS");
    },error=>{
-    alert("Error");
+    // alert("Error");
    });
 
   }
 
   ngOnInit():void{
-    
+
     
   }
 

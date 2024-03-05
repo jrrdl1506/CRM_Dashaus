@@ -71,9 +71,9 @@ export class RegisterLeadComponent implements OnInit{
     }
 
     this.leadApiService.addLead(LEAD).subscribe(data=>{
-       alert("Exito");
+      //  alert("Exito");
     },error=>{
-      alert("Error");
+      // alert("Error");
     });
   }
 
