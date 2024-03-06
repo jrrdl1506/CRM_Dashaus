@@ -29,3 +29,12 @@
     
 </div>
 
+<div class="sidebar" *ngIf="seleccion.includes('Inventarios')">
+    <div class="sidebar_opt" [routerLink]="['/dashboard/addInventory']">
+        <i class="fa-solid fa-arrow-up-right-dots"></i>
+        <div >Alta de inventario</div>
+    </div>
+    
+    
+</div>
+

@@ -7,6 +7,7 @@ import { RegisterLeadComponent } from './components/forms/register-lead/register
 import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.component';
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
+import { InventarioFormComponent } from './components/forms/inventario-form/inventario-form.component';
 
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: 'verLeads',component:VerLeadsComponent},
     { path: 'registerForm',component:RegisterFormComponent},
     { path: 'listaUsuarios',component:ListaUsuariosComponent},
-    { path: 'perfilUsuario',component:PerfilUsuarioComponent}
+    { path: 'perfilUsuario',component:PerfilUsuarioComponent},
+    { path: 'addInventory',component:InventarioFormComponent}
   ]},
 
 
