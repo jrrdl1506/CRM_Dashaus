@@ -26,4 +26,13 @@ export class LeadApiService {
     console.log(lead,"ADDLEAD");
     return this.http.post(this.Api.getApiURL() + "/addLead",lead);
   }
+
+  getApartadoPorprototipo():Observable<any>{
+    return this.http.get(this.Api.getApiURL() + "/getApartadoPorprototipo");
+  }
+
+  getApartadoPorCanal():Observable<any>{
+    return this.http.get(this.Api.getApiURL() + "/getApartadoPorCanal");
+  }
+
 }

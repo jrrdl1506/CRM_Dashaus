@@ -21,6 +21,8 @@ import { LeadsPorCanalComponent } from './components/graficas/leads-por-canal/le
 import { InventarioDisponibleComponent } from './components/graficas/inventario-disponible/inventario-disponible.component';
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
+import { ApartadoPorPrototipoComponent } from './components/graficas/apartado-por-prototipo/apartado-por-prototipo.component';
+import { ApartadoPorCanalComponent } from './components/graficas/apartado-por-canal/apartado-por-canal.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/per
        LeadsPorCanalComponent,
        InventarioDisponibleComponent,
        ListaUsuariosComponent,
-       PerfilUsuarioComponent
+       PerfilUsuarioComponent,
+       ApartadoPorPrototipoComponent,
+       ApartadoPorCanalComponent
   ],
   imports: [
     BrowserModule,
