@@ -23,6 +23,12 @@ import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lis
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 import { ApartadoPorPrototipoComponent } from './components/graficas/apartado-por-prototipo/apartado-por-prototipo.component';
 import { ApartadoPorCanalComponent } from './components/graficas/apartado-por-canal/apartado-por-canal.component';
+import { ApartadosComponent } from './components/pipeline/apartados/apartados.component';
+import { ContratosComponent } from './components/pipeline/contratos/contratos.component';
+import { FirmasComponent } from './components/pipeline/firmas/firmas.component';
+import { EntregaComponent } from './components/pipeline/entrega/entrega.component';
+import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.component';
+import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { ApartadoPorCanalComponent } from './components/graficas/apartado-por-ca
        ListaUsuariosComponent,
        PerfilUsuarioComponent,
        ApartadoPorPrototipoComponent,
-       ApartadoPorCanalComponent
+       ApartadoPorCanalComponent,
+       ApartadosComponent,
+       ContratosComponent,
+       FirmasComponent,
+       EntregaComponent,
+       PostVentaComponent,
+       VerInventarioComponent
   ],
   imports: [
     BrowserModule,

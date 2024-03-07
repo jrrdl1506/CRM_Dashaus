@@ -8,6 +8,10 @@ import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.compon
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 import { InventarioFormComponent } from './components/forms/inventario-form/inventario-form.component';
+import { ApartadosComponent } from './components/pipeline/apartados/apartados.component';
+import { FirmasComponent } from './components/pipeline/firmas/firmas.component';
+import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.component';
+import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
 
 
 
@@ -20,7 +24,11 @@ const routes: Routes = [
     { path: 'registerForm',component:RegisterFormComponent},
     { path: 'listaUsuarios',component:ListaUsuariosComponent},
     { path: 'perfilUsuario',component:PerfilUsuarioComponent},
-    { path: 'addInventory',component:InventarioFormComponent}
+    { path: 'addInventory',component:InventarioFormComponent},
+    { path: 'apartado',component:ApartadosComponent},
+    { path: 'firma',component:FirmasComponent},
+    { path: 'postVenta',component:PostVentaComponent},
+    { path: 'verInventario',component:VerInventarioComponent}
   ]},
 
 

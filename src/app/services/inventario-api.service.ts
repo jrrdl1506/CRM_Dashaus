@@ -15,6 +15,10 @@ export class InventarioApiService {
     return this.http.post(this.api.getApiURL() + "/addInventario",inv);
   }
 
+  getInventory():Observable<any>{
+    return this.http.get(this.api.getApiURL() + "/getInventario");
+  }
+
 
 
 

@@ -11,7 +11,7 @@ export class VerLeadsComponent {
   constructor(private leadApiService:LeadApiService){
     this.leadApiService.getLeads().subscribe((data:any[])=>{
       this.ListaLeads = data;
-      alert("Exito");
+      // alert("Exito");
       console.log(this.ListaLeads,"LISTA LEADS");
    },error=>{
     // alert("Error");
