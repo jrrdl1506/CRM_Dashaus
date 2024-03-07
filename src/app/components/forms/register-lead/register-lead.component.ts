@@ -48,8 +48,9 @@ export class RegisterLeadComponent implements OnInit{
   statusLeadOptions: string[] = [
     'EN PROCESO',
     'APARTADO',
-    'CONTRATO',
-    'ESCRITURAS FIRMADAS'
+    'CONTRATO GENERADO',
+    'FIRMADO',
+    'VIVIENDA ENTREGADA'
   ];
 
 
@@ -60,7 +61,9 @@ export class RegisterLeadComponent implements OnInit{
   }
 
   onSubmit() {
-    
+    const currentDate = new Date();
+
+    console.log(currentDate.toISOString())
     const LEAD:any = {
       leadName:this.RegisterLeadForm.get('nombreLead')?.value,
       leadOrigin:this.RegisterLeadForm.get('origenLead')?.value,
@@ -68,6 +71,7 @@ export class RegisterLeadComponent implements OnInit{
       leadNumber:this.RegisterLeadForm.get('numero')?.value,
       leadModel:this.RegisterLeadForm.get('modeloCasa')?.value,
       leadStatus:this.RegisterLeadForm.get('statusLead')?.value,
+      currentDate: currentDate.toISOString()
     }
 
     this.leadApiService.addLead(LEAD).subscribe(data=>{
