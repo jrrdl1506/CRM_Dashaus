@@ -5,7 +5,7 @@
 
 
 
-    <div class="h_menu" *ngIf="userType == 1">
+    <div class="h_menu" >
         <div class="h_menu_opt">
             <p (click)="hacerSeleccion('Dashboard')">Dashboard</p>
         </div>
@@ -17,6 +17,9 @@
         </div >
         <div class="h_menu_opt">
             <p (click)="hacerSeleccion('Administrar')">Administrar</p>
+        </div>
+        <div class="h_menu_opt">
+            <p (click)="hacerSeleccion('Inventarios')">Inventarios</p>
         </div>
     </div>
 

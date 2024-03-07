@@ -15,6 +15,7 @@
         <div><i class="fa-solid fa-user-xmark"></i></div>
         <div>Eliminar usuario</div>
     </div>
+    
 </div>
 
 <div class="sidebar" *ngIf="seleccion.includes('Leads')">
@@ -26,6 +27,33 @@
         <i class="fa-regular fa-address-card" ></i>
         <div >Status de leads</div>
     </div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/apartado']">
+        <div><i class="fa-solid fa-file-invoice" ></i></div>
+        <div>Apartado</div>
+    </div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/firma']">
+        <div><i class="fa-solid fa-file-signature" ></i></div>
+        <div>Firma y entrega</div>
+    </div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/postVenta']">
+        <div><i class="fa-solid fa-paste" ></i></div>
+        <div>Post-venta</div>
+    </div>
+        
+    
+    
+</div>
+
+<div class="sidebar" *ngIf="seleccion.includes('Inventarios')">
+    <div class="sidebar_opt" [routerLink]="['/dashboard/addInventory']">
+        <i class="fa-solid fa-arrow-up-right-dots"></i>
+        <div >Alta de inventario</div>
+    </div>
+    <div class="sidebar_opt" [routerLink]="['/dashboard/verInventario']">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <div >Ver Inventario</div>
+    </div>
+    
     
 </div>
 

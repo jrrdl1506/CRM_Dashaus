@@ -1,9 +1,9 @@
-<form [formGroup]="inventarioForm" (ngSubmit)="onSubmit()" class="registerLead">
-    <p class="title">Registrar lead</p>
+<form [formGroup]="inventarioForm" (ngSubmit)="onSubmit()" class="registerLead p-2">
+    <p class="title">Alta de inventario</p>
     <br>
     <div>
         <p>Lote</p>
-        <input class="input_style_1 w-75" formControlName="Lote">
+        <input class="input_style_1 w-75" formControlName="lote">
     </div>
     <br>
     <div>
@@ -15,7 +15,7 @@
     <br>
     <div>
         <p>Precio de venta</p>
-        <input class="input_style_1 w-75" formControlName="precioventa">
+        <input class="input_style_1 w-75" formControlName="precioVenta">
     </div>
     <br>
     <div>
@@ -30,6 +30,6 @@
     </div>
     <br>
     <div style="display: flex; justify-content: space-between;" class="w-75">
-        <button type="submit" class="btn-style-1">Registrar lead</button>
+        <button type="submit" class="btn-style-1">Alta inventario</button>
     </div>
 </form>
