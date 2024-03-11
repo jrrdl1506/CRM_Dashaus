@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,8 @@ import { FirmasComponent } from './components/pipeline/firmas/firmas.component';
 import { EntregaComponent } from './components/pipeline/entrega/entrega.component';
 import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.component';
 import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
+
+
 
 @NgModule({
   declarations: [
@@ -62,7 +66,8 @@ import { VerInventarioComponent } from './components/inventarios/ver-inventario/
     ReactiveFormsModule,
     NgxChartsModule,
     HttpClientModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

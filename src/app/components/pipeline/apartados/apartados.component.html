@@ -4,24 +4,27 @@
     <table>
         <thead>
           <tr>
-            <th>Precio</th>
             <th>m2</th>
             <th>Costo p/m2</th>
-            <th>Enganche</th>
             <th>Precio</th>
+            <th>Enganche</th>
             <th>Plazo</th>
             
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <td><input style="width: 100%;height: 100%;"></td>
-            <td><input style="width: 100%;height: 100%;"></td>
-            <td><input style="width: 100%;height: 100%;"></td>
-            <td><input style="width: 100%;height: 100%;"></td>
-            <td><input style="width: 100%;height: 100%;"></td>
-            <td><input style="width: 100%;height: 100%;"></td>
-          </tr>
+            <tr>
+                <td><input [(ngModel)]="m2" (ngModelChange)="onInputChange($event, 'm2')" id="a_m2" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+            
+                <td><input [(ngModel)]="costo" (ngModelChange)="onInputChange($event, 'costo')" id="a_costo" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+                
+                <td><input [(ngModel)]="precio" (ngModelChange)="onInputChange($event, 'precio')" id="a_precio" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+            
+                <td><input [(ngModel)]="enganche" (ngModelChange)="onInputChange($event, 'enganche')" id="a_enganche" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+                
+                <td><input [(ngModel)]="plazo" (ngModelChange)="calcularPlazo()" id="a_plazo" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+            </tr>
+            
           
         </tbody>
     </table>
