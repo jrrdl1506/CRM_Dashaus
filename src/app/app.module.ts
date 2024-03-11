@@ -29,6 +29,8 @@ import { FirmasComponent } from './components/pipeline/firmas/firmas.component';
 import { EntregaComponent } from './components/pipeline/entrega/entrega.component';
 import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.component';
 import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
+import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.component';
+import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { VerInventarioComponent } from './components/inventarios/ver-inventario/
        FirmasComponent,
        EntregaComponent,
        PostVentaComponent,
-       VerInventarioComponent
+       VerInventarioComponent,
+       LeadsMesComponent,
+       MisLeadsComponent
   ],
   imports: [
     BrowserModule,

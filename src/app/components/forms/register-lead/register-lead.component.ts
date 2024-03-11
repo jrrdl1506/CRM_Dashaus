@@ -60,10 +60,27 @@ export class RegisterLeadComponent implements OnInit{
     
   }
 
-  onSubmit() {
-    const currentDate = new Date();
+  private obtenerMesActualTexto(): string {
+    const meses = [
+      "Enero", "Febrero", "Marzo", "Abril",
+      "Mayo", "Junio", "Julio", "Agosto",
+      "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+  
+    const fechaActual = new Date();
+    const mesActual = fechaActual.getMonth();
+    const nombreMes = meses[mesActual];
+    return nombreMes;
+  }
 
-    console.log(currentDate.toISOString())
+  onSubmit() {
+
+    console.log(this.obtenerMesActualTexto())
+
+    var idcuenta = localStorage.getItem('accountId');
+    
+
+    console.log(idcuenta)
     const LEAD:any = {
       leadName:this.RegisterLeadForm.get('nombreLead')?.value,
       leadOrigin:this.RegisterLeadForm.get('origenLead')?.value,
@@ -71,8 +88,13 @@ export class RegisterLeadComponent implements OnInit{
       leadNumber:this.RegisterLeadForm.get('numero')?.value,
       leadModel:this.RegisterLeadForm.get('modeloCasa')?.value,
       leadStatus:this.RegisterLeadForm.get('statusLead')?.value,
-      currentDate: currentDate.toISOString()
+      leadVendor: idcuenta,
+      currentDate: this.obtenerMesActualTexto()
     }
+
+    
+
+    console.log(LEAD)
 
     this.leadApiService.addLead(LEAD).subscribe(data=>{
       //  alert("Exito");
