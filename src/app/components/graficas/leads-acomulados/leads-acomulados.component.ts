@@ -57,7 +57,6 @@ export class LeadsAcomuladosComponent {
     alert("Error");
    });
 
-    Object.assign(this.single)
   }
 
   onSelect(data: any): void {

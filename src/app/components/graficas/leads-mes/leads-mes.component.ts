@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+
 import { NgxChartsModule,  Color, ScaleType } from '@swimlane/ngx-charts'
+
 
 import { LeadApiService } from 'src/app/services/lead-api.service';
 
 @Component({
-  selector: 'app-apartado-por-canal',
-  templateUrl: './apartado-por-canal.component.html',
-  styleUrls: ['./apartado-por-canal.component.scss']
+  selector: 'app-leads-mes',
+  templateUrl: './leads-mes.component.html',
+  styleUrls: ['./leads-mes.component.scss']
 })
-export class ApartadoPorCanalComponent {
-
+export class LeadsMesComponent {
   single = [
     {
       "name": "facebook",
@@ -46,15 +47,15 @@ export class ApartadoPorCanalComponent {
   };
 
   constructor( private LeadApi:LeadApiService) {
-    this.LeadApi.getApartadoPorCanal().subscribe((data:any[])=>{
+    this.LeadApi.getLeadsMes().subscribe((data:any[])=>{
       this.single = data;
+      console.log(this.single,"LEADS MES");
+
+      
+
    },error=>{
     alert("Error");
    });
-
-    Object.assign(this.single)
-
-   
   }
 
   onSelect() {
