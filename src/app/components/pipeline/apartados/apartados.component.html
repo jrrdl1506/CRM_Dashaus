@@ -22,7 +22,7 @@
             
                 <td><input [(ngModel)]="enganche" (ngModelChange)="onInputChange($event, 'enganche')" id="a_enganche" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
                 
-                <td><input [(ngModel)]="plazo" (ngModelChange)="calcularPlazo()" id="a_plazo" inputmode="numeric" pattern="[0-9]*" style="width: 100%;height: 100%;"></td>
+                <td><input [(ngModel)]="plazo" value="1" (ngModelChange)="calcularPlazo()" id="a_plazo" type="number" pattern="[1-9]*" style="width: 100%;height: 100%;"></td>
             </tr>
             
           
@@ -68,15 +68,16 @@
             
           </tr>
         </thead>
-        <tbody>
+        <tbody id="trBody">
           <tr >
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-         
+            <td id="c_periodo">a</td>
+            <td id="c_pago">a</td>
+            <td id="c_fecha">a</td>
+            <td id="c_interes">a</td>
+            <td id="c_capital">a</td>
+            <td id="c_saldo">a</td>
           </tr>
+          
           
         </tbody>
     </table>
