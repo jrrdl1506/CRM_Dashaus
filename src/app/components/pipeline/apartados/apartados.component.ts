@@ -9,8 +9,10 @@ export class ApartadosComponent {
   precio: number=0;
   m2: number=0;
   costo: number=0;
+  precioSinEnganche:number=0;
+  auxPrecioSinEnganche:number = 0;
   enganche: number=0;
-  plazo: number=0;
+  plazo: number=1;
 
   arrMensualidades:any[]=[];
 
@@ -20,14 +22,19 @@ export class ApartadosComponent {
 
   onInputChange(newValue: number, propertyName: string) {
     
-    // Aquí puedes acceder a los valores en tiempo real
-    // console.log('Precio:', this.precio);
-    // console.log('Metros cuadrados:', this.m2);
-    // console.log('Costo:', this.costo);
-    // console.log('Enganche:', this.enganche);
-    // console.log('Plazo:', this.plazo);
     console.log(this.m2 + " " + this.costo +" = "+(this.m2*this.costo));
+    if(this.enganche!=0){
+      this.hayEnganche();
+
+    }
     this.asignarPrecio(this.multiplicarM2(this.m2,this.costo));
+    this.colocarLosPlazos();
+  }
+
+  hayEnganche(){
+    this.precio = this.precioSinEnganche - this.enganche;
+    this.asignarPrecio(this.multiplicarM2(this.m2,this.costo));
+    this.colocarLosPlazos();
   }
 
 
@@ -39,22 +46,17 @@ export class ApartadosComponent {
     var precio = document.getElementById("a_precio") as HTMLInputElement;
     console.log(m2xnum,"Precio");
     if (precio) {
-        this.precio = m2xnum; // Asegúrate de convertir el número a cadena antes de asignarlo al valor del input
+        this.precioSinEnganche = m2xnum; // Asegúrate de convertir el número a cadena antes de asignarlo al valor del input
     }
   }
 
   calcularPlazo(){
-    
     if(this.plazo == null || this.plazo == 0 || this.plazo < 0){
-      
+      this.plazo=1;
     }
     else{
       this.colocarLosPlazos();
     }
-    // var precioCadaPlazo = this.precio / this.plazo;
-    // console.log(precioCadaPlazo,"plazos");
-    // alert(this.plazo);
-    
     
   }
 
@@ -70,24 +72,6 @@ export class ApartadosComponent {
   
     this.colocarTds();
 
-    // var tbody = document.getElementById('trBody');
-    // if (tbody) {
-    //   tbody.innerHTML = ""; // Limpiar el contenido actual del tbody
-
-    //   alert(this.plazo);
-
-    //   for (var i = 0; i < this.plazo; i++) {
-    //     var newRow = document.createElement('tr'); // Crear una nueva fila
-        
-    //     for (var j = 0; j < 6; j++) { // Crear cuatro celdas 'td' en cada fila
-    //       var newTd = document.createElement('td'); // Crear un nuevo elemento td
-    //       newTd.textContent = 'a'; // Asignar un contenido al td (en este caso, 'a')
-    //       newRow.appendChild(newTd); // Agregar el nuevo td a la fila
-    //     }
-        
-    //     tbody.appendChild(newRow); // Agregar la nueva fila al tbody
-    //   }
-    // }
 
   }
 
@@ -100,10 +84,11 @@ export class ApartadosComponent {
     for (let i = 0; i < numeroMensualidades; i++) {
         mensualidades.push(new Date(fechaActual));
         fechaActual.setMonth(fechaActual.getMonth() + 1);
+        
         var mensualidad = {
           periodo:i,
           pago:this.precio/this.plazo,
-          fechaPago:fechaActual.setMonth(fechaActual.getMonth() + 1),
+          fechaPago:fechaActual.toISOString().slice(0, 10),
           saldo:100
         }
         this.arrMensualidades.push(mensualidad);
@@ -143,10 +128,6 @@ export class ApartadosComponent {
     if( tbody){
      
 
-      // periodo:i,
-      // pago:this.precio/this.plazo,
-      // fechaPago:fechaActual.setMonth(fechaActual.getMonth() + 1),
-      // saldo:100
 
       
       for (var i = 0; i < this.plazo; i++) {
@@ -184,6 +165,9 @@ export class ApartadosComponent {
     }
     
   }
+
+
+
 
 
 
