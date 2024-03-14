@@ -33,6 +33,12 @@ export class LeadApiService {
     return this.http.post(this.Api.getApiURL() + "/getLeadsByVendor", idObject);
   }
 
+  anvanzarLead(id: any): Observable<any> {
+    const idObject = { 'id': id };
+    console.log(idObject);
+    return this.http.post(this.Api.getApiURL() + "/anvanzarLead", idObject);
+  }
+
   
 
   getApartadoPorprototipo():Observable<any>{
@@ -41,6 +47,10 @@ export class LeadApiService {
 
   getApartadoPorCanal():Observable<any>{
     return this.http.get(this.Api.getApiURL() + "/getApartadoPorCanal");
+  }
+
+  getLeadsProspectos():Observable<any>{
+    return this.http.get(this.Api.getApiURL() + "/getLeadsProspectos");
   }
 
   getLeadsMes():Observable<any>{

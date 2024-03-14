@@ -31,6 +31,7 @@ import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.
 import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
 import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.component';
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
+import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.compon
        PostVentaComponent,
        VerInventarioComponent,
        LeadsMesComponent,
-       MisLeadsComponent
+       MisLeadsComponent,
+       ProspectosComponent
   ],
   imports: [
     BrowserModule,

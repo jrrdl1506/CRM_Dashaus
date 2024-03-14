@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterLeadComponent } from './components/forms/register-lead/register-lead.component';
 import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.component';
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
+import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 import { InventarioFormComponent } from './components/forms/inventario-form/inventario-form.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'registerForm',component:RegisterFormComponent},
     { path: 'listaUsuarios',component:ListaUsuariosComponent},
     { path: 'perfilUsuario',component:PerfilUsuarioComponent},
+    { path: 'prospectos',component:ProspectosComponent},
     { path: 'addInventory',component:InventarioFormComponent},
     { path: 'apartado',component:ApartadosComponent},
     { path: 'firma',component:FirmasComponent},
