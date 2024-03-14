@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +34,8 @@ import { VerInventarioComponent } from './components/inventarios/ver-inventario/
 import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.component';
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
 import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
+
+
 
 @NgModule({
   declarations: [
@@ -68,7 +72,8 @@ import { ProspectosComponent } from './components/leads/prospectos/prospectos.co
     ReactiveFormsModule,
     NgxChartsModule,
     HttpClientModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
