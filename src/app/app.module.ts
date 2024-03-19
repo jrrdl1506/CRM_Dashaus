@@ -34,6 +34,7 @@ import { VerInventarioComponent } from './components/inventarios/ver-inventario/
 import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.component';
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
 import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
+import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-vendor.component';
 
 
 
@@ -64,7 +65,8 @@ import { ProspectosComponent } from './components/leads/prospectos/prospectos.co
        VerInventarioComponent,
        LeadsMesComponent,
        MisLeadsComponent,
-       ProspectosComponent
+       ProspectosComponent,
+       LeadsVendorComponent
   ],
   imports: [
     BrowserModule,
