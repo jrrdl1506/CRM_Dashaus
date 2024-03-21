@@ -33,6 +33,7 @@ export class ApartadosComponent {
 
   hayEnganche(){
     this.precio = this.precioSinEnganche - this.enganche;
+   
     this.asignarPrecio(this.multiplicarM2(this.m2,this.costo));
     this.colocarLosPlazos();
   }
@@ -116,13 +117,7 @@ export class ApartadosComponent {
     const capitalTd = document.getElementById('c_capital');
     const saldoTd = document.getElementById('c_saldo');
 
-    
-    if(tbody){
-    
-      while (tbody.firstChild) {
-        tbody.removeChild(tbody.firstChild);
-      }
-    }
+    this.limpiaTds();
     
 
     if( tbody){
@@ -163,8 +158,19 @@ export class ApartadosComponent {
 
       }
     }
-    
   }
+
+
+  limpiaTds(){
+    var tbody = document.getElementById('trBody');
+    if(tbody){
+    
+      while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+      }
+    }
+  }
+
 
 
 

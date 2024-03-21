@@ -35,6 +35,7 @@ import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.com
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
 import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
 import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-vendor.component';
+import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.component';
 
 
 
@@ -66,7 +67,8 @@ import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-v
        LeadsMesComponent,
        MisLeadsComponent,
        ProspectosComponent,
-       LeadsVendorComponent
+       LeadsVendorComponent,
+       CotizadorComponent
   ],
   imports: [
     BrowserModule,
