@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CotizacionesService } from 'src/app/services/cotizaciones.service';
 
 @Component({
   selector: 'app-cotizador',
@@ -18,10 +19,15 @@ export class CotizadorComponent {
     plazos:number=0;
 
     arrMensualidades:any[]=[];
+    arrAbonos:any[]=[];
     
     pagoEnganche:number=0;
     restantePagoEnganche:number=0;
     auxRestantePagoEnganche:number=0;
+
+    constructor(private cotizacionesService:CotizacionesService){
+
+    }
 
     calcularPrecioSinEnganche(){
       if(this.M2 > 0 && this.precio_M2 > 0){
@@ -203,6 +209,7 @@ abonarEnganche(){
      fecha_pago:fecha,
      saldo:this.restantePagoEnganche
   }
+  this.arrAbonos.push(abono);
 
   console.log(abono,"abono");
 
@@ -232,6 +239,87 @@ generarFila(obj:any){
   }
   this.auxRestantePagoEnganche=this.auxRestantePagoEnganche -this.pagoEnganche;
 
+
+}
+
+
+capturaMensualidad(){
+
+  
+
+  var mensualidadesFormateadas = this.formatearMensualidades();
+  var abonosFormateados = this.formatearAbonos();
+
+  console.log(mensualidadesFormateadas,"mensualdiades");
+  console.log(abonosFormateados,"abonos");
+  // var Cotizacion= {
+  //   "m2": this.M2,
+  //   "costo_m2": this.precio_M2,
+  //   "precioSinEnganche": this.precioSinEnganche,
+  //   "tieneEnganche": this.hayEnganche,
+  //   "enganche": this.enganche,
+  //   "plazos": this.plazos,
+  //   "pagosEnganche": [mensualidadesFormateadas],
+  //   "mensualidades": [abonosFormateados]
+  // }
+
+  // this.cotizacionesService.addCotizacion(Cotizacion).subscribe((data:any)=>{
+  //   console.log("Cotizacion añadida");
+  // });
+  // console.log(Cotizacion,"Cotizacion");
+
+
+}
+
+
+formatearMensualidades(){
+
+  var arrMensualidadesFormateado:any = [];
+
+  this.arrMensualidades.forEach( mes =>{
+      var mensualidad = {
+        "es_enganche_o_mensualidad":"mensualidad",
+        "periodo":mes.periodo,
+        "pago":mes.pago,
+        "fecha_pago":mes.fechaPago,
+        "interes":"",
+        "capitalAmortizado":"",
+        "saldoFinalDePeriodo":mes.saldo
+      }
+      arrMensualidadesFormateado.push(mensualidad);
+
+
+  })
+
+
+  // console.log(this.arrMensualidades,"mENSUALIDADES");
+  return arrMensualidadesFormateado;
+
+
+}
+
+
+formatearAbonos(){
+  var arrAbonosFormateados:any = [];
+  
+  
+  this.arrAbonos.forEach( mes =>{
+      var mensualidad = {
+        "es_enganche_o_mensualidad":"enganche",
+        "periodo":mes.periodo,
+        "pago":mes.pago,
+        "fecha_pago":mes.fechaPago,
+        "interes":"",
+        "capitalAmortizado":"",
+        "saldoFinalDePeriodo":mes.saldo
+      }
+      arrAbonosFormateados.push(mensualidad);
+
+
+  })
+
+
+  return arrAbonosFormateados;
 
 }
 
