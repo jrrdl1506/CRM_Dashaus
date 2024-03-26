@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { GlobalApiService } from './global-api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,53 +11,19 @@ export class LoginServiceService {
   private credencialesSubject: Subject<any> = new Subject<any>();
   credenciales$: Observable<any> = this.credencialesSubject.asObservable();
 
-  constructor() {
-    this.checkLocalStorage();
+  constructor(private Api:GlobalApiService,private http:HttpClient) {
+    // this.checkLocalStorage();
   }
 
-  // LOGIN
-  async saveCredentials(_username: string, _password: string, _type: string): Promise<boolean> {
-    var credential = {
-      username: _username,
-      password: _password,
-      type: _type
-    }
 
-    const apiUrl = 'http://localhost:4000/dasHaus/authUser';
 
-    const jsonData = {
-      username: _username,
-      password: _password
-    };
+  login(user:any):Observable<any>{
+      return this.http.post(this.Api.getApiURL() + "/authUser",user);
+  }
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(jsonData),
-      });
-
-      if (!response.ok) {
-        return false
-        throw new Error(`Error al realizar la solicitud. Estado: ${response.status}`);
-
-      }
-
-      const responseData = await response.json();
-      console.log('Datos obtenidos:', responseData);
-
-      const accountId = responseData._id;
-
-      // Guardar el ID de la cuenta en el localStorage
-      localStorage.setItem('accountId', accountId);
-
-      return true
-    } catch (error) {
-      console.error('Error al realizar la solicitud:');
-      return false
-    }
+  saveCredentials(user:any):void{
+    const credencialString = JSON.stringify(user);
+    localStorage.setItem('credential', credencialString);
   }
 
   // LOGOUT
@@ -82,3 +50,49 @@ export class LoginServiceService {
     }
   }
 }
+
+
+  // // LOGIN
+  // async saveCredentials(_username: string, _password: string, _type: string): Promise<boolean> {
+  //   var credential = {
+  //     username: _username,
+  //     password: _password,
+  //     type: _type
+  //   }
+
+  //   const apiUrl = 'http://localhost:4000/dasHaus/authUser';
+
+  //   const jsonData = {
+  //     username: _username,
+  //     password: _password
+  //   };
+
+  //   try {
+  //     const response = await fetch(apiUrl, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(jsonData),
+  //     });
+
+  //     if (!response.ok) {
+  //       return false
+  //       throw new Error(`Error al realizar la solicitud. Estado: ${response.status}`);
+
+  //     }
+
+  //     const responseData = await response.json();
+  //     console.log('Datos obtenidos:', responseData);
+
+  //     const accountId = responseData._id;
+
+  //     // Guardar el ID de la cuenta en el localStorage
+  //     localStorage.setItem('credential', accountId);
+
+  //     return true
+  //   } catch (error) {
+  //     console.error('Error al realizar la solicitud:');
+  //     return false
+  //   }
+  // }

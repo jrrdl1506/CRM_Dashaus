@@ -2,7 +2,8 @@ import { Component ,OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 import { Router } from '@angular/router';
-
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -25,26 +26,46 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  async onSubmit() {
-    if(await this.checkCredentials()){
-      this.router.navigate(['/dashboard']);
-    }
-    else{
-      alert("No se encontro el usuario");
-    }
-   
+  onSubmit() {
+    this.checkCredentials();
   }
 
 
   // Funcion que checa en la bd si existe o no mediante el servicio
-  async checkCredentials():Promise<boolean>{
+  checkCredentials(){
+    
+    var user = {
+      username:this.loginForm?.value.username,
+      password:this.loginForm?.value.password,
+      userType:""
+    }
 
-    return this.logingService.saveCredentials(
-      this.loginForm?.value.username,
-      this.loginForm?.value.password,
-      this.loginForm?.value.username
-    );
+    this.logingService.login(user).pipe(
+      catchError(error => {
+        alert("ERROR");
+        return throwError('Error en la petición de login');
+       
+      })
+    ).subscribe((res: any) => {
+      this.logingService.saveCredentials(res);
+      this.waitForLocalStorageAndNavigate();
+    });
   }
+
+
+  waitForLocalStorageAndNavigate() {
+    const interval = setInterval(() => {
+      const credentials = localStorage.getItem('credential');
+      if (credentials) {
+        clearInterval(interval); 
+        const user = JSON.parse(credentials);
+        // console.log(user,"USUARIO");
+        this.router.navigate(['/dashboard']); 
+      
+      }
+    }, 1000); 
+  }
+  
 
 
 }

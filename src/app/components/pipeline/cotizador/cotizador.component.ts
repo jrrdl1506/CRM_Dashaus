@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CotizacionesService } from 'src/app/services/cotizaciones.service';
+import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
   selector: 'app-cotizador',
@@ -7,6 +8,8 @@ import { CotizacionesService } from 'src/app/services/cotizaciones.service';
   styleUrls: ['./cotizador.component.scss']
 })
 export class CotizadorComponent {
+
+    cred?:any;
 
     M2:number=0;
     precio_M2:number=0;
@@ -25,9 +28,14 @@ export class CotizadorComponent {
     restantePagoEnganche:number=0;
     auxRestantePagoEnganche:number=0;
 
-    constructor(private cotizacionesService:CotizacionesService){
+    constructor(
+      private cotizacionesService:CotizacionesService,
+      private loginService:LoginServiceService
+      ){
+        this.cred=this.loginService.getCredentials();
+        console.log(this.cred,"CREDENCIALES");
 
-    }
+      }
 
     calcularPrecioSinEnganche(){
       if(this.M2 > 0 && this.precio_M2 > 0){
@@ -247,29 +255,50 @@ capturaMensualidad(){
 
   
 
-  var mensualidadesFormateadas = this.formatearMensualidades();
-  var abonosFormateados = this.formatearAbonos();
+  // var mensualidadesFormateadas = this.formatearMensualidades();
+  // var abonosFormateados = this.formatearAbonos();
 
-  console.log(mensualidadesFormateadas,"mensualdiades");
-  console.log(abonosFormateados,"abonos");
-  // var Cotizacion= {
-  //   "m2": this.M2,
-  //   "costo_m2": this.precio_M2,
-  //   "precioSinEnganche": this.precioSinEnganche,
-  //   "tieneEnganche": this.hayEnganche,
-  //   "enganche": this.enganche,
-  //   "plazos": this.plazos,
-  //   "pagosEnganche": [mensualidadesFormateadas],
-  //   "mensualidades": [abonosFormateados]
-  // }
+  // console.log(mensualidadesFormateadas,"mensualdiades");
+  // console.log(abonosFormateados,"abonos");
+  var Cotizacion= {
+    "id_usuario":this.cred._id,
+    "m2": this.M2,
+    "costo_m2": this.precio_M2,
+    "precioSinEnganche": this.precioSinEnganche,
+    "tieneEnganche": this.hayEnganche,
+    "enganche": this.enganche,
+    "plazos": this.plazos,
+    "pagosEnganche": [],
+    "mensualidades": []
+  }
 
-  // this.cotizacionesService.addCotizacion(Cotizacion).subscribe((data:any)=>{
-  //   console.log("Cotizacion añadida");
-  // });
+ 
+
+  this.cotizacionesService.addCotizacion(Cotizacion).subscribe((data:any)=>{
+    console.log("Cotizacion añadida");
+  });
   // console.log(Cotizacion,"Cotizacion");
+
+  
 
 
 }
+
+
+generaMensualidades(){
+    var mensualidadesFormateadas = this.formatearMensualidades();
+    var abonosFormateados = this.formatearMensualidades();
+}
+
+
+generadorDeMensualidaes(mens:any[]){
+  mens.forEach(mes=> {
+      
+
+    
+  });
+}
+
 
 
 formatearMensualidades(){
@@ -328,10 +357,20 @@ formatearAbonos(){
 
 
 
+}
+
+
+
+
+
+
+
+
+
   
 
 
 
 
 
-}
+
