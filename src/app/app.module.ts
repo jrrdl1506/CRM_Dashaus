@@ -38,6 +38,8 @@ import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-v
 import { ContratoComponent } from './components/leads/contrato/contrato.component';
 import { HitrateApartadoComponent } from './components/graficas/hitrate-apartado/hitrate-apartado.component';
 import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.component';
+import { ListaCotizacionesComponent } from './components/pipeline/lista-cotizaciones/lista-cotizaciones.component';
+import { VerCotizacionComponent } from './components/pipeline/ver-cotizacion/ver-cotizacion.component';
 
 
 
@@ -72,7 +74,9 @@ import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.co
        LeadsVendorComponent,
        ContratoComponent,
        HitrateApartadoComponent,
-       CotizadorComponent
+       CotizadorComponent,
+       ListaCotizacionesComponent,
+       VerCotizacionComponent
   ],
   imports: [
     BrowserModule,

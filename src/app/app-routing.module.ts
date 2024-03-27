@@ -15,7 +15,7 @@ import { ApartadosComponent } from './components/pipeline/apartados/apartados.co
 import { FirmasComponent } from './components/pipeline/firmas/firmas.component';
 import { PostVentaComponent } from './components/pipeline/post-venta/post-venta.component';
 import { VerInventarioComponent } from './components/inventarios/ver-inventario/ver-inventario.component';
-
+import { ContratosComponent } from './components/pipeline/contratos/contratos.component';
 
 
 const routes: Routes = [
@@ -34,7 +34,8 @@ const routes: Routes = [
     { path: 'firma',component:FirmasComponent},
     { path: 'postVenta',component:PostVentaComponent},
     { path: 'verInventario',component:VerInventarioComponent},
-    { path: 'contrato',component:ContratoComponent}
+    { path: 'contrato',component:ContratoComponent},
+    { path: 'contratos',component:ContratosComponent}
   ]},
 
 

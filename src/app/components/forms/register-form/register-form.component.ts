@@ -14,7 +14,7 @@ export class RegisterFormComponent implements OnInit{
   tiposusuario: string[] = [
     'Tesoreria',
     'Ventas',
-    'administración'
+    'Administración'
   ];
 
   constructor(private fb: FormBuilder, private registerService:UserServiceService, private router: Router) {
@@ -44,6 +44,7 @@ export class RegisterFormComponent implements OnInit{
 
   // Funcion para registrar usuario
   async registerUser():Promise<boolean>{
+    console.log(  this.RegisterForm?.value.type,"TIPO USUARIO");
 
     return this.registerService.registerUser(
       this.RegisterForm?.value.username,

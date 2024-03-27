@@ -12,7 +12,7 @@ export class MisLeadsComponent {
     var idcuenta = localStorage.getItem('accountId');
     this.leadApiService.getLeadsByVendor(idcuenta).subscribe((data:any[])=>{
       this.ListaLeads = data;
-      // alert("Exito");
+      
       console.log(this.ListaLeads,"LISTA LEADS");
    },error=>{
     // alert("Error");

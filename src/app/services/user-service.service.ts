@@ -15,7 +15,7 @@ export class UserServiceService {
     var credential = {
       username:_username,
       password:_password,
-      type:_type
+      userType:_type
     }
     
     const apiUrl = 'http://localhost:4000/dasHaus/addUser';
