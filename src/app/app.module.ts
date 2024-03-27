@@ -37,6 +37,7 @@ import { ProspectosComponent } from './components/leads/prospectos/prospectos.co
 import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-vendor.component';
 import { ContratoComponent } from './components/leads/contrato/contrato.component';
 import { HitrateApartadoComponent } from './components/graficas/hitrate-apartado/hitrate-apartado.component';
+import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.component';
 
 
 
@@ -70,7 +71,8 @@ import { HitrateApartadoComponent } from './components/graficas/hitrate-apartado
        ProspectosComponent,
        LeadsVendorComponent,
        ContratoComponent,
-       HitrateApartadoComponent
+       HitrateApartadoComponent,
+       CotizadorComponent
   ],
   imports: [
     BrowserModule,
