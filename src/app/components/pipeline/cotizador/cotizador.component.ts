@@ -9,6 +9,7 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 })
 export class CotizadorComponent {
 
+
     cred?:any;
 
     M2:number=0;
@@ -27,6 +28,8 @@ export class CotizadorComponent {
     pagoEnganche:number=0;
     restantePagoEnganche:number=0;
     auxRestantePagoEnganche:number=0;
+
+    idCotizacion:string="";
 
     constructor(
       private cotizacionesService:CotizacionesService,
@@ -163,11 +166,11 @@ export class CotizadorComponent {
         newRow.appendChild(newTd3); // Agregar el nuevo td a la fila
   
         var newTd4 = document.createElement('td'); // Crear un nuevo elemento td
-        newTd4.textContent = 'Texto para interés'; // Asignar un contenido al td
+        newTd4.textContent = ''; // Asignar un contenido al td
         newRow.appendChild(newTd4); // Agregar el nuevo td a la fila
   
         var newTd5 = document.createElement('td'); // Crear un nuevo elemento td
-        newTd5.textContent = 'Texto para capital'; // Asignar un contenido al td
+        newTd5.textContent = ''; // Asignar un contenido al td
         newRow.appendChild(newTd5); // Agregar el nuevo td a la fila
   
         var newTd6 = document.createElement('td');
@@ -275,7 +278,9 @@ capturaMensualidad(){
  
 
   this.cotizacionesService.addCotizacion(Cotizacion).subscribe((data:any)=>{
-    console.log("Cotizacion añadida");
+    console.log(data._id,"Cotizacion añadida");
+    this.idCotizacion=data._id;
+    this.generaMensualidades();
   });
   // console.log(Cotizacion,"Cotizacion");
 
@@ -288,12 +293,17 @@ capturaMensualidad(){
 generaMensualidades(){
     var mensualidadesFormateadas = this.formatearMensualidades();
     var abonosFormateados = this.formatearMensualidades();
+    this.generadorDeMensualidaes(mensualidadesFormateadas);
+    this.generadorDeMensualidaes(abonosFormateados);
 }
 
 
 generadorDeMensualidaes(mens:any[]){
+  alert("aaa");
   mens.forEach(mes=> {
-      
+    this.cotizacionesService.addMensualidad(mes).subscribe((data:any)=>{
+      console.log("Mensualidad registrada");
+    });
 
     
   });
@@ -307,12 +317,13 @@ formatearMensualidades(){
 
   this.arrMensualidades.forEach( mes =>{
       var mensualidad = {
+        "id_cotizacion":this.idCotizacion,
         "es_enganche_o_mensualidad":"mensualidad",
         "periodo":mes.periodo,
         "pago":mes.pago,
         "fecha_pago":mes.fechaPago,
-        "interes":"",
-        "capitalAmortizado":"",
+        "interes":0,
+        "capitalAmortizado":0,
         "saldoFinalDePeriodo":mes.saldo
       }
       arrMensualidadesFormateado.push(mensualidad);
@@ -334,12 +345,13 @@ formatearAbonos(){
   
   this.arrAbonos.forEach( mes =>{
       var mensualidad = {
+        "id_cotizacion":this.idCotizacion,
         "es_enganche_o_mensualidad":"enganche",
         "periodo":mes.periodo,
         "pago":mes.pago,
         "fecha_pago":mes.fechaPago,
-        "interes":"",
-        "capitalAmortizado":"",
+        "interes":0,
+        "capitalAmortizado":0,
         "saldoFinalDePeriodo":mes.saldo
       }
       arrAbonosFormateados.push(mensualidad);
