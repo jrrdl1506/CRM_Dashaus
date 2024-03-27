@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import * as FileSaver from 'file-saver';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +35,8 @@ import { LeadsMesComponent } from './components/graficas/leads-mes/leads-mes.com
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
 import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
 import { LeadsVendorComponent } from './components/graficas/leads-vendor/leads-vendor.component';
+import { ContratoComponent } from './components/leads/contrato/contrato.component';
+import { HitrateApartadoComponent } from './components/graficas/hitrate-apartado/hitrate-apartado.component';
 import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.component';
 
 
@@ -68,6 +70,8 @@ import { CotizadorComponent } from './components/pipeline/cotizador/cotizador.co
        MisLeadsComponent,
        ProspectosComponent,
        LeadsVendorComponent,
+       ContratoComponent,
+       HitrateApartadoComponent,
        CotizadorComponent
   ],
   imports: [

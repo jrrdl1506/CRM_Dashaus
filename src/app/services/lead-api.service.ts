@@ -36,7 +36,11 @@ export class LeadApiService {
     const idObject = { 'id': id };
     return this.http.post(this.Api.getApiURL() + "/getUserById", idObject);
   }
+  
 
+  getHitrateApartado():Observable<any>{
+    return this.http.get(this.Api.getApiURL() + "/getHitrateApartado");
+  }
  
 
   anvanzarLead(id: any): Observable<any> {
