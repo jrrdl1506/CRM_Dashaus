@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterLeadComponent } from './components/forms/register-lead/register-lead.component';
 import { VerLeadsComponent } from './components/leads/ver-leads/ver-leads.component';
 import { MisLeadsComponent } from './components/leads/mis-leads/mis-leads.component';
+import { ContratoComponent } from './components/leads/contrato/contrato.component';
 import { ProspectosComponent } from './components/leads/prospectos/prospectos.component';
 import { ListaUsuariosComponent } from './components/usuarios/lista-usuarios/lista-usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
     { path: 'apartado',component:ApartadosComponent},
     { path: 'firma',component:FirmasComponent},
     { path: 'postVenta',component:PostVentaComponent},
-    { path: 'verInventario',component:VerInventarioComponent}
+    { path: 'verInventario',component:VerInventarioComponent},
+    { path: 'contrato',component:ContratoComponent}
   ]},
 
 
